@@ -1,0 +1,2 @@
+!async function(a){const t=await async function(a){const t=await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${a}&appid=ed5ff69a9a55d7bb14fda92a70690f61`,{mode:"cors"});return await t.json()}("london"),o=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${t[0].lat}&lon=${t[0].lon}&appid=ed5ff69a9a55d7bb14fda92a70690f61`,{mode:"cors"}),e=await o.json();console.log(e)}();
+//# sourceMappingURL=app.bundle.js.map
