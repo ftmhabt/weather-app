@@ -19,47 +19,63 @@ async function getWeather(city, unit) {
 }
 
 
+let city='london';
+let unit='metric';
 
-async function render(city='london', unit='metric') {
+
+const tempBtn = document.querySelector('.temp');
+
+const cityBtn = document.querySelector('.city');
+
+const searchBox=document.querySelector('.search');
+const exitBtn=document.querySelector('.exit');
+const input=document.querySelector('input');
+const selectBtn=document.querySelector('.select');
+
+
+
+async function render() {
+
+    
     const weatherJson = await getWeather(city, unit);
-    const temp = weatherJson.main.feels_like;
-    const weather = weatherJson.weather[0].main;
-    console.log(city, unit,temp, weather);
 
-    const cityBtn = document.querySelector('.city');
+    console.log(weatherJson);
+    const temp = weatherJson.main.feels_like;
+    // const weather = weatherJson.weather[0].main;
+
     cityBtn.textContent = city;
 
-    const searchBox=document.querySelector('.search');
-    const exitBtn=document.querySelector('.exit');
-    const input=document.querySelector('input');
-    const selectBtn=document.querySelector('.select');
 
-    cityBtn.addEventListener('click',()=>{
-        searchBox.classList.remove('hide');
-    })
 
-    exitBtn.addEventListener('click',()=>{
-        searchBox.classList.add('hide');
-    })
-
-    selectBtn.addEventListener('click',()=>{
-        render(input.value,unit);
-        input.textContent='';
-        searchBox.classList.add('hide');
-    })
-
-    const tempBtn = document.querySelector('.temp');
     tempBtn.textContent =`${temp} ${unit==='metric'?'c':'f'}`;
 
-    tempBtn.addEventListener('click', () => {
-        if (unit === 'metric') {
-            render(city, 'imperial');
-        }
-        else {
-            render(city, 'metric');
-        }
-
-    })
+    
 }
 
+
 render();
+
+cityBtn.addEventListener('click',()=>{
+    searchBox.classList.remove('hide');
+})
+
+exitBtn.addEventListener('click',()=>{
+    searchBox.classList.add('hide');
+})
+
+selectBtn.addEventListener('click',()=>{
+    city=input.value;
+    render();
+    input.textContent='';
+    searchBox.classList.add('hide');
+})
+
+tempBtn.addEventListener('click', () => {
+    if (unit === 'metric') {
+        unit='imperial';
+    }
+    else {
+        unit= 'metric';
+    }
+    render();
+})
