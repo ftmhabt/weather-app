@@ -55,7 +55,7 @@ async function render() {
     console.log(weather);
 
     switch (weather) {
-        case 'Cloud':
+        case 'Clouds':
             img.src = cloudy;
             break;
         case 'Rain':
