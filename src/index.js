@@ -8,7 +8,7 @@ import half from './half.png';
 import thunder from './thunder.png';
 
 async function getGeo(city) {
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=ed5ff69a9a55d7bb14fda92a70690f61`,
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=ed5ff69a9a55d7bb14fda92a70690f61`,
         { mode: 'cors' });
 
     const json = await response.json();
