@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 
 *{
+    font-family: "DM Serif Display", serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -37,10 +39,11 @@ body{
     display: flex;
     position: absolute;
     background-color: aliceblue;
-    width: 500px;
-    top: 7rem;
+    width: 300px;
+    top: 5rem;
     border: 1px white solid;
     border-radius: 1rem;
+
 }
 
 .search button{
@@ -52,7 +55,8 @@ body{
 
 .search input{
     font-size: 2rem;
-    flex-grow: 3;
+    /* flex-grow: 1; */
+    width: 70%;
     outline: none;
     border: 0;
 }
